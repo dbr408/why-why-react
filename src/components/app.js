@@ -6,12 +6,12 @@ import {
   Route
 } from 'react-router-dom';
 
-import PortfolioContainer from './portfolio/portfolio-container';
 import NavigationContainer from './navigation/navigationcontainer';
 import Home from "./pages/home";
 import About from "./pages/about";
 import Contact from "./pages/contact";
 import Blog from "./pages/blog";
+import PortfolioDetail from "./portfolio/portfolio-detail";
 
 export default class App extends Component {
   render() {
@@ -28,6 +28,7 @@ export default class App extends Component {
             <Route path="/about-me" Component={About} />
             <Route path="/contact" Component={Contact} />
             <Route path="/blog" Component={Blog} />
+            <Route path="/portfolio/:slug" Component={PortfolioDetail} />
            </Switch>
           </div>
         </Router>

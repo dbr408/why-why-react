@@ -9,15 +9,17 @@ export default class PortfolioContainer extends Component {
         this.state = {
             pageTitle:"welcome to my react",
             data:[
-            {title: "Quip"},
-            {title: "Eventbrite"},
-            {title: "Ministry Safe"}]
+            {title: "Quip", category: "eCommerce", slug: 'quip' },
+            {title: "Eventbrite", category: "Scheduling", slug: 'eventbrite' },
+            {title: "Ministry Safe", category: "eCommerce", slug: 'ministry-safe' },
+            { title: "SwingAway", category: "eCommerce", slug:'swingaway' }
+        ]
         }
     }
 
     portfolioitem(){
         return this.state.data.map(item => {
-            return <Portfolioitem title={item} url={"google.com"} />;
+            return <Portfolioitem title={item} url={"google.com"} slug={item.slug} />;
         })
     }
     render() {
