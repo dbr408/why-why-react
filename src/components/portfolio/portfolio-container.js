@@ -33,15 +33,21 @@ export default class PortfolioContainer extends Component {
         .get("https://danielbrown.devcamp.space/portfolio/portfolio_items")
         .then(response => {
         console.log(response);
+        this.setState({
+            data: response.data.portfolio_items
+        })
       })
       .catch(errror => {
         console.log(error);
       });
       }
 
-    portfolioitem(){
+    portfolioitem() {
         return this.state.data.map(item => {
-            return <Portfolioitem title={item} url={"google.com"} slug={item.slug} />;
+            return <Portfolioitem 
+            key={item.id}
+            item={item}
+            />;
         })
     }
 
