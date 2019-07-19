@@ -15,7 +15,7 @@ import Auth from "./pages/auth";
 import NoMatch from "./pages/no-match";
 
 export default class App extends Component {
-  }
+}
   render() ;{
     return (
       <div className='container'>
@@ -38,4 +38,3 @@ export default class App extends Component {
         </div>
     );
   }
-}
