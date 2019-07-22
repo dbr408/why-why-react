@@ -20,7 +20,7 @@ export default class PortfolioContainer extends Component {
     this.getPortfolioItems = this.getPortfolioItems.bindn(this);
     this.handleFilter = this.handleFilter.bind(this);
 
-    handleFilter(filter) {
+    handleFilter(filter) ;{
         this.setState({
             data: this.state.data.filter(item => {
                 return item.category === filter;
@@ -28,7 +28,7 @@ export default class PortfolioContainer extends Component {
         });
     }
 
-    getPortfolioItems() {
+    getPortfolioItems() ;{
         axios
         .get("https://danielbrown.devcamp.space/portfolio/portfolio_items")
         .then(response => {
@@ -42,7 +42,7 @@ export default class PortfolioContainer extends Component {
       });
       }
 
-    portfolioitem() {
+    portfolioitem() ;{
         return this.state.data.map(item => {
             return <Portfolioitem 
             key={item.id}
@@ -51,7 +51,7 @@ export default class PortfolioContainer extends Component {
         })
     }
 
-    render() {
+    render() ;{
         if(this.state.isloading) {
             return <div>Loading...</div>;
         }
@@ -66,4 +66,3 @@ export default class PortfolioContainer extends Component {
             {this.portfolioItem()}</div>
         );
     }
-}
