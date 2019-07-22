@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from axios
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,17 +16,84 @@ import Auth from "./pages/auth";
 import NoMatch from "./pages/no-match";
 
 export default class App extends Component {
-}
-  render() ;{
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      loggedInStatus: "NOT_LOGGED_IN"
+    };
+
+    this.handleSucessfulLogin = this.handleSucessfulLogin.bind(this);
+    this.handleUnSucessfulLogin = this.handleUnSucessfulLogin.bind(this)
+  }
+
+  handleSucessfulLogin() {
+    this.setState({
+      loggedInStatus: "LOGGED_IN" 
+    })
+  }
+
+  handleUnSucessfulLogin() {
+    this.setState({
+      loggedInStatus: "NOT_LOGGED_IN" 
+    })
+  }
+
+  checkLoginStatus() {
+    return axios.get("https://api.devcamp.space/logged_in", { 
+      withCredentials: true }).then(Response => {
+        const loggedIN = Response.data.logged_in;
+        const loggedInStatus = this.state.loggedInStatus;
+
+        // If loggedIn and status LOGGED_IN => return data
+        // If loggedIn status NOT_LOGGED_IN => updata state
+        // If not loggedIn and status LOGGED_IN => update state
+
+        if (loggedIn && loggedInStatus === "LOGGED_IN") {
+          return loggedIn;
+        } else if (loggedIn && loggedInStatus === "NOT_LOGGED_IN") {
+          this.setState({
+            loggedInStatus: "LOGGED_IN"
+          });
+          } else if (!loggedIn && loggedInStatus === "LOGGED_IN") {
+          this.setState({
+            loggedInStatus: "NOT_LOGGED_IN"
+          });
+        }
+      })
+      .catch(error => {
+        console.log("Error", error);
+      });
+  }
+
+  componentDidMount() {
+    this.checkLoginStatus();
+  }
+
+  render() {
     return (
       <div className='container'>
         <Router>
           <div>
            <NavigationContainer />
 
+           <h2>{this.state.loggedInStatus}</h2>
+
            <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/auth" component={Auth} />
+
+            <Route
+             path="/auth"
+             render={props => (
+               <Auth
+                 {...props}
+                 handleSucessfulLogin={this.handleSucessfulLogin}
+                 handleUnSucessfulLogin={this.handleUnSucessfulLogin}
+                 />
+             )               
+             }
+            />
+
             <Route path="/about-me" component={About} />
             <Route path="/contact" component={Contact} />
             <Route path="/blog" component={Blog} />
@@ -38,3 +106,4 @@ export default class App extends Component {
         </div>
     );
   }
+}
