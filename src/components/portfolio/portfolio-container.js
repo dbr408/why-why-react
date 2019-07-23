@@ -42,7 +42,7 @@ export default class PortfolioContainer extends Component {
       });
       }
 
-    Portfolioitem() {
+    portfolioItem() {
         return this.state.data.map(item => {
             return <Portfolioitem 
             key={item.id}
