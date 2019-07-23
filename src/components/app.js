@@ -79,7 +79,7 @@ export default class App extends Component {
 
   authorizedPages() {
     return [
-      <Route path="/blog" component={Blog} />
+      <Route key="portfoliomanager" path="/portfoliomanager" component={PortfolioManager} />
     ]
   }
 
