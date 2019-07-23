@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import { Navlink } from "react-router-dom";
-import axios from 'axios'
-import {withRouter} from "react-router"
+import { NavLink } from 'react-router-dom';
+import axios from 'axios';
+import { withRouter } from 'react-router';
 
 const NavigationComponent = (props) => {
   
   const dynamicLink = (route, linkText) => {
     return (
       <div className="nav-link-wrapper">
-      <Navlink to="/blog" activeClassName="nav-link-active">
+      <NavLink to="/blog" activeClassName="nav-link-active">
         Blog
-        </Navlink>
+        </NavLink>
       </div>
     );
   };
@@ -31,15 +31,15 @@ const NavigationComponent = (props) => {
       <div className="nav-wrapper">
         <div className="left-side">
           <div className="nav-link-wrapper">
-      <NavLink exact to="/"activeClassName="nav-link-active">
+      <NavLink exact to="/" activeClassName="nav-link-active">
         Home
       </NavLink>
       </div>
       <div className="nav-link-wrapper">
-      <Navlink to="/about-me"activeClassName="nav-link-active">About</Navlink>
+      <NavLink to="/about-me"activeClassName="nav-link-active">About</NavLink>
       </div>
       <div className="nav-link-wrapper">
-      <Navlink to="/contact">Contact</Navlink>
+      <NavLink to="/contact">Contact</NavLink>
       </div>
 
 
