@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios';
 
-import Portfolioitem from "./portfolioitem";
+import Portfolioitem from './portfolioitem';
 
 export default class PortfolioContainer extends Component {
     constructor() {
@@ -13,11 +13,11 @@ export default class PortfolioContainer extends Component {
             {title: "Quip", category: "eCommerce", slug: 'quip' },
             {title: "Eventbrite", category: "Scheduling", slug: 'eventbrite' },
             {title: "Ministry Safe", category: "eCommerce", slug: 'ministry-safe' },
-            { title: "SwingAway", category: "eCommerce", slug:'swingaway' }
+            { title: "SwingAway", category: "eCommerce", slug:'swingaway' },
         ]
         }
-    };
-    this.getPortfolioItems = this.getPortfolioItems.bindn(this);
+    }
+    this.getPortfolioItems = this.getPortfolioItems.bind(this);
     this.handleFilter = this.handleFilter.bind(this);
 
     handleFilter(filter) ;{
@@ -42,12 +42,12 @@ export default class PortfolioContainer extends Component {
       });
       }
 
-    portfolioitem() ;{
+    Portfolioitem() ;{
         return this.state.data.map(item => {
             return <Portfolioitem 
             key={item.id}
             item={item}
-            />;
+            />
         })
     }
 
@@ -65,4 +65,5 @@ export default class PortfolioContainer extends Component {
 
             {this.portfolioItem()}</div>
         );
-    }
+    };
+}

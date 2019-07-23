@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Navlink } from "react-router-dom";
-import axios from axios
+import axios from 'axios'
 import {withRouter} from "react-router"
 
 const NavigationComponent = (props) => {
