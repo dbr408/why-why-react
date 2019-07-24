@@ -9,11 +9,12 @@ const PortfofliosidebarList = (props) => {
               <div classname="portfolio-thumb-img">
                   <img src={portfolioItems.thumd_image_url} />
               </div>
-              <h1 className="title">{portfolioItems.name}</h1>
-              <h2>{portfolioItems.id}</h2>
-              <A onClick={() => props.hanbleDeleteClick(portfolioItems)}>
+              <div className="text-content">
+              <div className="title">{portfolioItems.name}</div>
+              <A className="trash-icon"onClick={() => props.hanbleDeleteClick(portfolioItems)}>
                   <FontAwesomeIcon icon="trash" />
               </A>
+              </div>
           </div>
       );
     });
