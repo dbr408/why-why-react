@@ -56,13 +56,13 @@ export default class App extends Component {
         // If loggedIn status NOT_LOGGED_IN => updata state
         // If not loggedIn and status LOGGED_IN => update state
 
-        if (loggedIn && loggedInStatus === "LOGGED_IN") {
+        if (loggedIN && loggedInStatus === "LOGGED_IN") {
           return loggedIn;
-        } else if (loggedIn && loggedInStatus === "NOT_LOGGED_IN") {
+        } else if (loggedIN && loggedInStatus === "NOT_LOGGED_IN") {
           this.setState({
             loggedInStatus: "LOGGED_IN"
           });
-          } else if (!loggedIn && loggedInStatus === "LOGGED_IN") {
+          } else if (!loggedIN && loggedInStatus === "LOGGED_IN") {
           this.setState({
             loggedInStatus: "NOT_LOGGED_IN"
           });

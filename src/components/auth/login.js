@@ -61,14 +61,14 @@ export default class login extends Component {
             name="email"
             placeholder="Your email"
             value={this.state.email}
-            onChang={this.handleChange}
+            onChange={this.handleChange}
             />
             <input 
             type="password" 
             name="passward"
             placeholder="Your password"
             value={this.state.password}
-            onChang={this.handleChange}
+            onChange={this.handleChange}
             />
 
             <div>
