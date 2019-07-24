@@ -27,7 +27,7 @@ export default class login extends Component {
         {
             client: {
                 email: this.state.email,
-                password: this.state.password
+                password: this.state.password,
             }
         },
         { withCredentials:true }
@@ -65,14 +65,14 @@ export default class login extends Component {
             />
             <input 
             type="password" 
-            name="passward"
+            name="password"
             placeholder="Your password"
             value={this.state.password}
             onChange={this.handleChange}
             />
 
             <div>
-            <button type="submit"></button>
+            <button type="submit">Sign In</button>
             </div>
          </form>
         </div>
