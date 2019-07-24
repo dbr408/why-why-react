@@ -1,4 +1,6 @@
 import React from 'react';
+import {FontAwesome} from '@fortswesome/react-fontawesome';
+
 
 const PortfofliosidebarList = (props) => {
     const portfolioList = props.data.map(portfolioItems => {
@@ -9,6 +11,9 @@ const PortfofliosidebarList = (props) => {
               </div>
               <h1 className="title">{portfolioItems.name}</h1>
               <h2>{portfolioItems.id}</h2>
+              <A onClick={() => props.hanbleDeleteClick(portfolioItems)}>
+                  <FontAwesomeIcon icon="trash" />
+              </A>
           </div>
       );
     });
