@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import {library} from '@fortawesome/fontawesome-svg-core';
-import {FontAwesome} from '@fortswesome/react-fontawesome';
 import {faTrash, faSignOutAlt, faEdit} from '@fortawesome/free-solid-svg-icons'
 import {
   BrowserRouter as Router,
@@ -119,7 +118,7 @@ export default class App extends Component {
             <Route path="/about-me" component={About} />
             <Route path="/contact" component={Contact} />
             <Route path="/blog" component={Blog} />
-            <Route path="/b/:slug" component {BlogDetail} />
+            <Route path="/b/:slug" component {...BlogDetail} />
             {this.state.loggedInStatus === "LOGGED_IN" ?  this.authorizedPages() : null }
             <Route exact path="/portfolio/:slug" Component={PortfolioDetail} />
             <Route Component={NoMatch} />
