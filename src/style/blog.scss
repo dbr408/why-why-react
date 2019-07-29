@@ -2,6 +2,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+
+    .new-blog-link {
+        position: absolute;
+    }
 
     .content-container {
         display: flex;
