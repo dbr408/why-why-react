@@ -91,12 +91,13 @@ class Blog extends Component {
            handleSeccessfulNewBlogsubmition={this.handleSeccessfulNewBlogsubmition}
            handleModalClose = {this.handleModalClose}
             modalIsOpen={this.state.blogModalIsOpen} />
-
+            {this.props.loggedInStatus === "LOGGED_IN" ? (
             <div className="new-blog-link">
               <a onClick={this.handleNewBLogClick}>
                 <FontAwesomeIcon icon="plus-circle" />
               </a>
             </div>
+       ): null}
 
            <div className="content-container">
            {blogRecords}
