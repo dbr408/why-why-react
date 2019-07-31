@@ -221,7 +221,7 @@ export default class PortfolioForm extends Component {
                         <div className="portfolio-manager-image-wrapper">
                         <img src={this.state.thumb_image} />
                         <div className="image-removal-Link">
-                            <a onClick={() => THIS.deleteImage("thumb_image")}>
+                            <a onClick={() => this.deleteImage("thumb_image")}>
                                 Remove file
                             </a>
                         </div>
